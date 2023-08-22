@@ -21,7 +21,8 @@
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="name">
+                <input type="email" name="email" id="email">
+                <error-output class="error" for="text" style="color: red;"></error-output>
             </div>
             <div>
                 <label for="url">URL</label>
@@ -67,6 +68,16 @@
             salary.addEventListener('input', function(){
                 output.textContent=salary.value
             });
+
+            const Email=document.querySelector('#email');
+            const EmailError=document.querySelector('.error');
+            Email.addEventListener('input',function(){
+            let emailRegex=RegExp('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+            if(emailRegex.test(Email.value))
+                EmailError.textContent="";
+            else
+                EmailError.textContent="Email is not valid.";
+            })
 
         </script>
 </body>
