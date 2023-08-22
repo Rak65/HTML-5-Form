@@ -29,8 +29,9 @@
                 <input type="url" name="url" id="url">
             </div>
             <div>
-                <label for="number">Number</label>
+                <label for="number">Mobile Number</label>
                 <input type="number" name="number" id="number">
+                <error-output class="errorNumber" for="text" style="color: red;"></error-output>
             </div>
             <div>
                 <label for="tel">Tel</label>
@@ -77,6 +78,16 @@
                 EmailError.textContent="";
             else
                 EmailError.textContent="Email is not valid.";
+            })
+
+            const mobNo=document.querySelector('#number');
+            const errorNum=document.querySelector('.errorNumber');
+            mobNo.addEventListener('input', function(){
+                let numRegex=RegExp(/^(91\d{10})$/);
+                if(numRegex.test(mobNo.value))
+                    errorNum.textContent="";
+                else
+                    errorNum.textContent="Number is incorrect";
             })
 
         </script>
