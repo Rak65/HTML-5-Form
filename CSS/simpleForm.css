@@ -43,6 +43,6 @@ button{
     width: 70%;
     margin: 0;
 }
-error{
+error-output{
     color: red;
 }
