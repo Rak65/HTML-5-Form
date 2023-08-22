@@ -18,6 +18,7 @@
             <div>
                 <label for="pwd">Password</label>
                 <input type="password" id="pwd" name="pwd" required>
+                <error-output class="password_error" for="password"></error-output>
             </div>
             <div>
                 <label for="email">Email</label>
@@ -89,6 +90,16 @@
                 else
                     errorNum.textContent="Number is incorrect";
             })
+
+            const psd=document.querySelector('#pwd');
+            const error_pwd=document.querySelector('.password_error');
+            psd.addEventListener("input",function(){
+            if(psd.value.length<8)
+                error_pwd.textContent="Password length is less than 8";
+            else
+                error_pwd.textContent="";        
+         })
+            
 
         </script>
 </body>
